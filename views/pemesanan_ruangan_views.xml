@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_pemesanan_ruangan_tree" model="ir.ui.view">
+        <field name="name">pemesanan.ruangan.tree</field>
+        <field name="model">pemesanan.ruangan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nomor_pemesanan"/>
+                <field name="ruangan_id"/>
+                <field name="nama_pemesanan"/>
+                <field name="tanggal_pemesanan"/>
+                <field name="status_pemesanan"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_pemesanan_ruangan_form" model="ir.ui.view">
+        <field name="name">pemesanan.ruangan.form</field>
+        <field name="model">pemesanan.ruangan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nomor_pemesanan" readonly="1"/>
+                        <field name="ruangan_id"/>
+                        <field name="nama_pemesanan"/>
+                        <field name="tanggal_pemesanan"/>
+                        <field name="status_pemesanan"/>
+                        <field name="catatan"/>
+                    </group>
+                    <footer>
+                        <button name="set_on_going" string="Proses Pemesanan" type="object" class="btn-primary"/>
+                        <button name="set_done" string="Tandai Selesai" type="object" class="btn-secondary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pemesanan_ruangan" model="ir.actions.act_window">
+        <field name="name">Pemesanan Ruangan</field>
+        <field name="res_model">pemesanan.ruangan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pemesanan_ruangan" name="Pemesanan Ruangan" parent="base.menu_management" action="action_pemesanan_ruangan"/>
+</odoo>
